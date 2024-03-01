@@ -1,0 +1,77 @@
+[
+     {
+          "name": "Kathleen Scott",
+          "phone": [
+               "0963610573",
+               "0631934048",
+               "380961210573"
+          ],
+          "tag": [
+               "blood"
+          ],
+          "email": "dleonard@example.com",
+          "birthday": "1986-08-03",
+          "company": "Mccoy-Green",
+          "address": "13971 Molly Way\nEdwardsville, IN 07800"
+     },
+     {
+          "name": "John Berger",
+          "phone": [
+               "0963610573",
+               "0631934048",
+               "380961210573"
+          ],
+          "tag": [
+               "instead"
+          ],
+          "email": "josephgarcia@example.com",
+          "birthday": "1974-01-02",
+          "company": "Smith, Lang and Benson",
+          "address": "950 Stephen Springs Apt. 510\nMayoland, AZ 94607"
+     },
+     {
+          "name": "John Proctor",
+          "phone": [
+               "0963610573",
+               "0631934048",
+               "380961210573"
+          ],
+          "tag": [
+               "course"
+          ],
+          "email": "gregoryvazquez@example.org",
+          "birthday": "1985-01-21",
+          "company": "Osborn PLC",
+          "address": "978 Kenneth Summit\nSouth Christina, CA 58233"
+     },
+     {
+          "name": "George Gonzalez",
+          "phone": [
+               "0963610573",
+               "0631934048",
+               "380961210573"
+          ],
+          "tag": [
+               "same"
+          ],
+          "email": "aaronbriggs@example.org",
+          "birthday": "1975-08-30",
+          "company": "Marquez, Richardson and Price",
+          "address": "9386 Fitzgerald Light\nLarryberg, IL 21094"
+     },
+     {
+          "name": "Kristen Zimmerman",
+          "phone": [
+               "0963610573",
+               "0631934048",
+               "380961210573"
+          ],
+          "tag": [
+               "girl"
+          ],
+          "email": "tylerriddle@example.net",
+          "birthday": "1976-07-29",
+          "company": "Grimes-Jackson",
+          "address": "485 Michael Plains\nWest John, GU 09081"
+     }
+]

@@ -29,6 +29,7 @@ class Field(ABC):
         pass
 
 
+
 class DataField(Field):
     """
         Represents a field in a data record for name, address, company, or tag.
@@ -85,4 +86,48 @@ class Birthday(Field):
             raise ValueError(Fore.BLUE + "Invalid birthday date, format Year-month-day")
 
 
+class Record:
+    def __init__(self, name: str,
+                 phone: str,
+                 tag: str = "",
+                 email: str = "",
+                 birthday: str = "",
+                 company: str = "",
+                 address: str = ""):
+        self.name = DataField(name)
+        self.company = DataField(company) if company else ""
+        self.address = DataField(address) if address else ""
+        self.email = Email(email) if email else ""
+        self.birthday = Birthday(birthday) if birthday else ""
+        self.phone = []
+        self.phone.append(Phone(phone))
+        self.tags = []
+        self.tags.append(DataField(tag))
 
+    def __str__(self):
+        info = f"**Name:** {self.name.value}\n"
+        if self.company:
+            info += f"**Company:** {self.company.value}\n"
+        if self.address:
+            info += f"**Address:** {self.address.value}\n"
+        if self.email:
+            info += f"**Email:** {self.email.value}\n"
+        if self.birthday:
+            info += f"**Birthday:** {self.birthday.value}\n"
+        if self.phone:
+            info += f"**Phone:** {', '.join([phone.value for phone in self.phone])}\n"
+        if self.tags:
+            info += f"**Tags:** {', '.join([tag.value for tag in self.tags])}\n"
+        return Fore.BLUE + info
+
+    def to_dict(self):
+        record_dict = {
+            "name": self.name.value,
+            "phone": [phone.value for phone in self.phone],
+            "tag": [tag.value for tag in self.tags],
+            "email": self.email.value if self.email else None,
+            "birthday": self.birthday.value if self.birthday else None,
+            "company": self.company.value if self.company else None,
+            "address": self.address.value if self.address else None
+        }
+        return record_dict
