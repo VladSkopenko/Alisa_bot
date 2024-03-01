@@ -1,28 +1,19 @@
 import re
-from abc import ABC
+from abc import ABC, abstractmethod
 
 from colorama import Fore
 
 
 class Field(ABC):
     """
-       This is a simple abstract class
+    Abstract class in which the main logic is implemented
     """
+
     def __init__(self, value: str) -> None:
-        self._value = value
+        self._value = self.validate(value)
 
-    def __str__(self):
-        return f'{self._value}'
-
-
-class DataField(Field):
-    """
-       This class is needed for contact fields, it will be used for name, address, company, tag
-    """
-    def __init__(self, value: str) -> None:
-        if not isinstance(value, str):
-            raise ValueError(Fore.BLUE + "Value must be a string")
-        super().__init__(value)
+    def __str__(self) -> str:
+        return f"{self._value}"
 
     @property
     def value(self) -> str:
@@ -30,33 +21,48 @@ class DataField(Field):
 
     @value.setter
     def value(self, new_value: str) -> None:
+        self._value = self.validate(new_value)
+
+    @abstractmethod
+    def validate(self, value: str) -> str:
+        pass
+
+
+class DataField(Field):
+    """
+        Represents a field in a data record for name, address, company, or tag.
+    """
+
+    def validate(self, new_value: str) -> str:
         if not isinstance(new_value, str):
             raise ValueError(Fore.BLUE + "Value must be a string")
-        self._value = new_value
+        return new_value
 
 
 class Phone(Field):
     """
-        This class is needed to validate the phone number and functionality associated with it
+    Represents a field for phone numbers and provides validation.
     """
-    def __init__(self, value: str) -> None:
-        super().__init__(self.valid_phone(value))
 
-    @staticmethod
-    def valid_phone(phone_number: str) -> str:
+    def validate(self, phone_number: str) -> str:
         pattern = r"^\+?380([0-9]{9}$)|0([0-9]{9}$)"
         if re.match(pattern, phone_number):
             return phone_number
         else:
             raise ValueError(Fore.BLUE + "Invalid phone number")
 
-    @property
-    def value(self):
-        return self._value
 
-    @value.setter
-    def value(self, new_phone):
-        valid_phone = self.valid_phone(new_phone)
-        self._value = valid_phone
+class Email(Field):
+    """
+    Represents a field for email addresses and provides validation.
+    """
+
+    def validate(self, email: str) -> str:
+        pattern = r'^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$'
+        if re.match(pattern, email):
+            return email
+        else:
+            raise ValueError(Fore.BLUE + "Invalid email")
+
 
 
