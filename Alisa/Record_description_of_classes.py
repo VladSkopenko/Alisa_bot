@@ -1,32 +1,53 @@
-from abc import ABC, abstractmethod
+import re
+from abc import ABC
 
 from colorama import Fore
 
 
 class Field(ABC):
-    @abstractmethod
+    def __init__(self, value: str) -> None:
+        self._value = value
+
     def __str__(self):
-        pass
+        return f'{self._value}'
 
 
-class Name(Field):
+class DataField(Field):
     def __init__(self, value: str) -> None:
         if not isinstance(value, str):
             raise ValueError(Fore.BLUE + "Value must be a string")
-        self.__value = value
-
-    def __str__(self) -> str:
-        return f"{self.__value}"
+        super().__init__(value)
 
     @property
     def value(self) -> str:
-        return self.__value
+        return self._value
 
     @value.setter
-    def value(self, new_name: str) -> None:
-        if not isinstance(new_name, str):
+    def value(self, new_value: str) -> None:
+        if not isinstance(new_value, str):
             raise ValueError(Fore.BLUE + "Value must be a string")
-        self.__value = new_name
+        self._value = new_value
 
+
+class Phone(Field):
+    def __init__(self, value: str) -> None:
+        super().__init__(self.valid_phone(value))
+
+    @staticmethod
+    def valid_phone(phone_number: str) -> str:
+        pattern = r"^\+?380([0-9]{9}$)|0([0-9]{9}$)"
+        if re.match(pattern, phone_number):
+            return phone_number
+        else:
+            raise ValueError(Fore.BLUE + "Invalid phone number")
+
+    @property
+    def value(self):
+        return self._value
+
+    @value.setter
+    def value(self, new_phone):
+        valid_phone = self.valid_phone(new_phone)
+        self._value = valid_phone
 
 
