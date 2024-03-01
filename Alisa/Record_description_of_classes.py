@@ -5,6 +5,9 @@ from colorama import Fore
 
 
 class Field(ABC):
+    """
+       This is a simple abstract class
+    """
     def __init__(self, value: str) -> None:
         self._value = value
 
@@ -13,6 +16,9 @@ class Field(ABC):
 
 
 class DataField(Field):
+    """
+       This class is needed for contact fields, it will be used for name, address, company, tag
+    """
     def __init__(self, value: str) -> None:
         if not isinstance(value, str):
             raise ValueError(Fore.BLUE + "Value must be a string")
@@ -30,6 +36,9 @@ class DataField(Field):
 
 
 class Phone(Field):
+    """
+        This class is needed to validate the phone number and functionality associated with it
+    """
     def __init__(self, value: str) -> None:
         super().__init__(self.valid_phone(value))
 
