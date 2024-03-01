@@ -1,13 +1,13 @@
 from abc import ABC, abstractmethod
 
 from colorama import Fore
-from Decorators.Error_handler import error_handler
 
 
 class Field(ABC):
     @abstractmethod
     def __str__(self):
         pass
+
 
 class Name(Field):
     def __init__(self, value: str) -> None:
