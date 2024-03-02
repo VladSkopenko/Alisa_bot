@@ -98,6 +98,9 @@ class Birthday(Field):
 
 
 class Record:
+    """
+    The Record class represents a contact entry with information about a person, including their name, contact details
+    """
     def __init__(self, name: str,
                  phone: str,
                  tag: str = "",
