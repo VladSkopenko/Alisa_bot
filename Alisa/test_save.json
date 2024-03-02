@@ -1,0 +1,87 @@
+[
+    {
+        "id_user": 1,
+        "name": "Ryan Davis",
+        "phone": [
+            "0963610573",
+            "0631324048",
+            "380961210573"
+        ],
+        "tag": [
+            "walk",
+            "developer"
+        ],
+        "email": "evan96@example.com",
+        "birthday": "1989-05-06",
+        "company": "Adams-Shelton",
+        "address": "5559 John Row\nFernandeztown, WV 70195"
+    },
+    {
+        "id_user": 2,
+        "name": "Melinda Salazar",
+        "phone": [
+            "0963610573",
+            "0631324048",
+            "380961210573"
+        ],
+        "tag": [
+            "though",
+            "developer"
+        ],
+        "email": "darroyo@example.org",
+        "birthday": "2019-11-27",
+        "company": "Turner, Thompson and Bishop",
+        "address": "3063 Brianna Underpass\nGuerrahaven, GU 52970"
+    },
+    {
+        "id_user": 3,
+        "name": "Andrea Vincent",
+        "phone": [
+            "0963610573",
+            "0631324048",
+            "380961210573"
+        ],
+        "tag": [
+            "how",
+            "developer"
+        ],
+        "email": "erica04@example.com",
+        "birthday": "1985-12-31",
+        "company": "Orr, Murphy and Chavez",
+        "address": "79901 Medina Crest Apt. 306\nNorth Calvin, NJ 30137"
+    },
+    {
+        "id_user": 4,
+        "name": "Shelly Richardson",
+        "phone": [
+            "0963610573",
+            "0631324048",
+            "380961210573"
+        ],
+        "tag": [
+            "difference",
+            "developer"
+        ],
+        "email": "nathanbrooks@example.net",
+        "birthday": "1970-04-22",
+        "company": "Stewart, Chase and Woodward",
+        "address": "3856 Hansen Shoal\nWheelermouth, AR 32131"
+    },
+    {
+        "id_user": 5,
+        "name": "Jack Jefferson",
+        "phone": [
+            "0963610573",
+            "0631324048",
+            "380961210573"
+        ],
+        "tag": [
+            "report",
+            "developer"
+        ],
+        "email": "lisa32@example.net",
+        "birthday": "2003-05-17",
+        "company": "Chase-Clements",
+        "address": "86903 Joy Estates Apt. 103\nHammondside, IA 70499"
+    }
+]

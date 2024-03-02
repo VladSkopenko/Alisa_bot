@@ -33,10 +33,9 @@ class Field(ABC):
         return isinstance(other, Field) and self._value == other.value
 
 
-
 class DataField(Field):
     """
-        Represents a field in a data record for name, address, company, or tag.
+    Represents a field in a data record for name, address, company, or tag.
     """
 
     def validate(self, new_value: str) -> str:
@@ -50,12 +49,20 @@ class Phone(Field):
     Represents a field for phone numbers and provides validation.
     """
 
-    def validate(self, phone_number: str) -> str:
-        pattern = r"^\+?380([0-9]{9}$)|0([0-9]{9}$)"
-        if match(pattern, phone_number):
-            return phone_number
+    def validate(self, phone_number: str | list[str, ...]) -> str | list[str, ...]:
+        if isinstance(phone_number, str):
+            pattern = r"^\+?380([0-9]{9}$)|0([0-9]{9}$)"
+            if match(pattern, phone_number):
+                return phone_number
+            else:
+                raise ValueError(Fore.BLUE + "Invalid phone number")
+        elif isinstance(phone_number, list):
+            validated_numbers = []
+            for number in phone_number:
+                validated_numbers.append(self.validate(number))
+            return validated_numbers
         else:
-            raise ValueError(Fore.BLUE + "Invalid phone number")
+            raise ValueError("Phone must be a string or a list of strings")
 
 
 class Email(Field):
@@ -91,28 +98,44 @@ class Birthday(Field):
 
 
 class Record:
+    id_counter = 1
+
     def __init__(self, name: str,
                  phone: str,
                  tag: str = "",
                  email: str = "",
                  birthday: str = "",
                  company: str = "",
-                 address: str = ""):
+                 address: str = "",
+                 id_user: int = None):
         self.name = DataField(name)
         self.company = DataField(company) if company else ""
         self.address = DataField(address) if address else ""
         self.email = Email(email) if email else ""
         self.birthday = Birthday(birthday) if birthday else ""
         self.phone = []
-        self.phone.append(Phone(phone))
+        if isinstance(phone, str):
+            self.phone.append(Phone(phone))
+        elif isinstance(phone, list):
+            self.phone.extend(Phone(phon) for phon in phone)
         self.tags = []
-        self.tags.append(DataField(tag))
+        if isinstance(tag, str):
+            self.tags.append(DataField(tag))
+        elif isinstance(tag, list):
+            self.tags.extend(DataField(t) for t in tag)
+
+        if id_user is None:
+            self.id_user = Record.id_counter
+            Record.id_counter += 1
+        else:
+            self.id_user = id_user
 
     def __str__(self):
         table = PrettyTable()
-        table.field_names = ["Name", "Company", "Email", "Birthday", "Phone", "Tags", "Address"]
+        table.field_names = ["Id", "Name", "Company", "Email", "Birthday", "Phone", "Tags", "Address"]
 
         table.add_row([
+            self.id_user,
             self.name.value,
             self.company.value if self.company else "",
             self.email.value if self.email else "",
@@ -126,6 +149,7 @@ class Record:
 
     def to_dict(self):
         record_dict = {
+            "id_user": self.id_user,
             "name": self.name.value,
             "phone": [phone.value for phone in self.phone],
             "tag": [tag.value for tag in self.tags],
@@ -135,3 +159,35 @@ class Record:
             "address": self.address.value if self.address else None
         }
         return record_dict
+
+    def update_field(self, field_name: str, old_value: str, new_value: str) -> None:
+
+        """
+        A universal method, it takes a name and changes the values in the list, if any, while maintaining the validation
+        """
+        field = getattr(self, field_name)
+        if field:
+            if isinstance(field, list):
+                for item in field:
+                    if item.value == old_value:
+                        item.value = new_value
+                        return
+            else:
+                if field.value == old_value:
+                    field.value = new_value
+        else:
+            raise AttributeError(f"Field {field_name} not found in record")
+
+
+if __name__ == "__main__":
+    test_contact = Record(
+        name="Vlad",
+        phone="0963610573",
+        email="skoper@afkas.com",
+        tag="Student",
+        address="lavatorial 34",
+        company="go it",
+        birthday="2000-01-28",
+        id_user=None,
+    )
+    print(test_contact)
