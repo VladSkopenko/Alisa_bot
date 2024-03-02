@@ -30,7 +30,7 @@ class Field(ABC):
         pass
 
     def __eq__(self, other):
-        return isinstance(other, Field) and self._value == other.value
+        return isinstance(other, Field) and self._value.lower() == other.value.lower()
 
 
 class DataField(Field):
@@ -41,7 +41,7 @@ class DataField(Field):
     def validate(self, new_value: str) -> str:
         if not isinstance(new_value, str):
             raise ValueError(Fore.BLUE + "Value must be a string")
-        return new_value
+        return new_value.title()
 
 
 class Phone(Field):
@@ -98,8 +98,6 @@ class Birthday(Field):
 
 
 class Record:
-    id_counter = 1
-
     def __init__(self, name: str,
                  phone: str,
                  tag: str = "",
@@ -107,7 +105,8 @@ class Record:
                  birthday: str = "",
                  company: str = "",
                  address: str = "",
-                 id_user: int = None):
+                 id_user: int = None
+                 ):
         self.name = DataField(name)
         self.company = DataField(company) if company else ""
         self.address = DataField(address) if address else ""
@@ -123,12 +122,7 @@ class Record:
             self.tags.append(DataField(tag))
         elif isinstance(tag, list):
             self.tags.extend(DataField(t) for t in tag)
-
-        if id_user is None:
-            self.id_user = Record.id_counter
-            Record.id_counter += 1
-        else:
-            self.id_user = id_user
+        self.id_user = id_user
 
     def __str__(self):
         table = PrettyTable()
@@ -146,6 +140,9 @@ class Record:
         ])
 
         return Fore.BLUE + str(table)
+
+    def assign_id(self, id_value):
+        self.id_user = id_value
 
     def to_dict(self):
         record_dict = {
