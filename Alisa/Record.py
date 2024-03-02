@@ -1,8 +1,9 @@
-from re import match
 from abc import ABC, abstractmethod
 from datetime import datetime
+from re import match
 
 from colorama import Fore
+from prettytable import PrettyTable
 
 
 class Field(ABC):
@@ -27,6 +28,9 @@ class Field(ABC):
     @abstractmethod
     def validate(self, value: str) -> str:
         pass
+
+    def __eq__(self, other):
+        return isinstance(other, Field) and self._value == other.value
 
 
 
@@ -105,20 +109,20 @@ class Record:
         self.tags.append(DataField(tag))
 
     def __str__(self):
-        info = f"**Name:** {self.name.value}\n"
-        if self.company:
-            info += f"**Company:** {self.company.value}\n"
-        if self.address:
-            info += f"**Address:** {self.address.value}\n"
-        if self.email:
-            info += f"**Email:** {self.email.value}\n"
-        if self.birthday:
-            info += f"**Birthday:** {self.birthday.value}\n"
-        if self.phone:
-            info += f"**Phone:** {', '.join([phone.value for phone in self.phone])}\n"
-        if self.tags:
-            info += f"**Tags:** {', '.join([tag.value for tag in self.tags])}\n"
-        return Fore.BLUE + info
+        table = PrettyTable()
+        table.field_names = ["Name", "Company", "Email", "Birthday", "Phone", "Tags", "Address"]
+
+        table.add_row([
+            self.name.value,
+            self.company.value if self.company else "",
+            self.email.value if self.email else "",
+            self.birthday.value if self.birthday else "",
+            ", ".join([phone.value for phone in self.phone]) if self.phone else "",
+            ", ".join([tag.value for tag in self.tags]) if self.tags else "",
+            self.address.value if self.address else ""
+        ])
+
+        return Fore.BLUE + str(table)
 
     def to_dict(self):
         record_dict = {
