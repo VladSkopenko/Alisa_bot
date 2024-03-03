@@ -108,7 +108,6 @@ class Record:
                  birthday: str = "",
                  company: str = "",
                  address: str = "",
-                 id_user: int = None
                  ):
         self.name = DataField(name)
         self.company = DataField(company) if company else ""
@@ -125,14 +124,13 @@ class Record:
             self.tags.append(DataField(tag))
         elif isinstance(tag, list):
             self.tags.extend(DataField(t) for t in tag)
-        self.id_user = id_user
+
 
     def __str__(self):
         table = PrettyTable()
-        table.field_names = ["Id", "Name", "Company", "Email", "Birthday", "Phone", "Tags", "Address"]
+        table.field_names = ["Name", "Company", "Email", "Birthday", "Phone", "Tags", "Address"]
 
         table.add_row([
-            self.id_user,
             self.name.value,
             self.company.value if self.company else "",
             self.email.value if self.email else "",
@@ -144,12 +142,9 @@ class Record:
 
         return Fore.BLUE + str(table)
 
-    def assign_id(self, id_value):
-        self.id_user = id_value
 
     def to_dict(self):
         record_dict = {
-            "id_user": self.id_user,
             "name": self.name.value,
             "phone": [phone.value for phone in self.phone],
             "tag": [tag.value for tag in self.tags],
@@ -188,6 +183,6 @@ if __name__ == "__main__":
         address="lavatorial 34",
         company="go it",
         birthday="2000-01-28",
-        id_user=None,
     )
-    print(test_contact)
+    for rec in test_contact.phone:
+        print(rec)
