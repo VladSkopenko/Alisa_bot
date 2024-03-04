@@ -1,10 +1,11 @@
 from collections import UserList
 
-from Decorators.Table_decorator import table_decorator
+from Decorators.Table_decorator import  table_decorator
 from Connect_db import RecordDocument, connect, URI
 
 
 class AddressBook(UserList):
+    __headers = ["id", "name", "phone", "tags", "email", "birthday", "company", "address"]
 
     def __init__(self):
         super().__init__()
@@ -19,7 +20,7 @@ class AddressBook(UserList):
     def to_dict(self):
         return [contact.to_dict() for contact in self]
 
-    @table_decorator
+    @table_decorator()
     def __str__(self):
         data = []
         for record in self:

@@ -1,9 +1,11 @@
 import sqlite3
 
-from Decorators.Table_decorator import table_decorator_for_note
+from Decorators.Table_decorator import table_decorator
 
 
 class NoteManager:
+    __headers = ["Id", "Title", "Date of last update", "Note"]
+
     def __init__(self, db_file='Notes.db'):
         self.db_file = db_file
 
@@ -25,7 +27,7 @@ class NoteManager:
         query = "UPDATE notes SET note = ? WHERE title = ?"
         self.execute_query(query, new_note, title)
 
-    @table_decorator_for_note
+    @table_decorator(__headers)
     def __str__(self):
         query = "SELECT * FROM notes"
         with sqlite3.connect(self.db_file) as connection:

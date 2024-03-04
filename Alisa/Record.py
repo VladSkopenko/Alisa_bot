@@ -3,9 +3,8 @@ from datetime import datetime
 from re import match
 
 from colorama import Fore
-from prettytable import PrettyTable
 
-from Decorators.Table_decorator import table_decorator_for_record
+from Decorators.Table_decorator import table_decorator
 
 
 class Field(ABC):
@@ -103,6 +102,7 @@ class Record:
     """
     The Record class represents a contact entry with information about a person, including their name, contact details
     """
+    __headers = ["Name", "Company", "Email", "Birthday", "Phone", "Tags", "Address"]
 
     def __init__(self, name: str,
                  phone: str,
@@ -128,7 +128,7 @@ class Record:
         elif isinstance(tag, list):
             self.tags.extend(DataField(t) for t in tag)
 
-    @table_decorator_for_record
+    @table_decorator(__headers)
     def __str__(self):
         return [
             [self.name,
