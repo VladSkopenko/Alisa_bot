@@ -1,31 +1,32 @@
-import json
-
-from tabulate import tabulate
-from colorama import Fore
 from faker import Faker
-
-from Record import Record, Phone, DataField
+from Connect_db import update_db, connect
+from Record import Record
+from Connect_db import RecordDocument
 
 fake = Faker()
-contacts = []
-for _ in range(5):
 
-    test_contact = Record(
-        name=fake.name(),
-        phone="0963610573",
-        email=fake.email(),
-        tag=fake.word(),
-        address=fake.address(),
-        company=fake.company(),
-        birthday=fake.date(),
 
-    )
-    test_contact.phone.append(Phone("0631324048"))
-    test_contact.phone.append(Phone("380961210573"))
-    test_contact.tags.append(DataField("developer"))
-    contacts.append(test_contact.to_dict())
-with open("Contacts.json", "w", encoding="utf-8") as file:
-    json.dump(contacts, file, ensure_ascii=False, indent=2)
+def generate_fake_phone_number():
+    return '0' + str(fake.random_number(digits=9))
 
-table = tabulate(contacts, headers="keys", tablefmt="grid")
-print((Fore.LIGHTMAGENTA_EX + table))
+def fake_seed():
+    for _ in range(10):
+        valid_contact = Record(
+            name=fake.name(),
+            phone=generate_fake_phone_number(),
+            email=fake.email(),
+            tag=fake.word(),
+            address=fake.address(),
+            company=fake.company(),
+            birthday=fake.date(),
+        )
+        contact_for_db = RecordDocument(
+            name=str(valid_contact.name),
+            phone=[str(phone) for phone in valid_contact.phone],
+            email=str(valid_contact.email),
+            tag=[str(tag) for tag in valid_contact.tags],
+            address=str(valid_contact.address),
+            company=str(valid_contact.company),
+            birthday=str(valid_contact.birthday),
+        )
+        contact_for_db.save()

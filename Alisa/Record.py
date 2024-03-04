@@ -5,6 +5,8 @@ from re import match
 from colorama import Fore
 from prettytable import PrettyTable
 
+from Decorators.Table_decorator import table_decorator_for_record
+
 
 class Field(ABC):
     """
@@ -126,21 +128,17 @@ class Record:
         elif isinstance(tag, list):
             self.tags.extend(DataField(t) for t in tag)
 
+    @table_decorator_for_record
     def __str__(self):
-        table = PrettyTable()
-        table.field_names = ["Name", "Company", "Email", "Birthday", "Phone", "Tags", "Address"]
-
-        table.add_row([
-            self.name.value,
-            self.company.value if self.company else "",
-            self.email.value if self.email else "",
-            self.birthday.value if self.birthday else "",
-            ", ".join([phone.value for phone in self.phone]) if self.phone else "",
-            ", ".join([tag.value for tag in self.tags]) if self.tags else "",
-            self.address.value if self.address else ""
-        ])
-
-        return Fore.BLUE + str(table)
+        return [
+            [self.name,
+             self.company,
+             self.email,
+             self.birthday,
+             [phone.value for phone in self.phone],
+             [tag.value for tag in self.tags],
+             self.address]
+        ]
 
     def to_dict(self):
         record_dict = {
@@ -173,5 +171,15 @@ class Record:
             raise AttributeError(f"Field {field_name} not found in record")
 
 
-
-
+if __name__ == "__main__":
+    per = Record(name="Vlad",
+                 phone="380961630573",
+                 tag="student",
+                 email="exsam@fa.com",
+                 birthday="2000-01-28",
+                 company="go it",
+                 address="address231213"
+                 )
+    per.tags.append(DataField("Test"))
+    per.phone.append(Phone("0961610523"))
+    print(per)
