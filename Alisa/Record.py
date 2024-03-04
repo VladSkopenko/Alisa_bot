@@ -101,6 +101,7 @@ class Record:
     """
     The Record class represents a contact entry with information about a person, including their name, contact details
     """
+
     def __init__(self, name: str,
                  phone: str,
                  tag: str = "",
@@ -125,7 +126,6 @@ class Record:
         elif isinstance(tag, list):
             self.tags.extend(DataField(t) for t in tag)
 
-
     def __str__(self):
         table = PrettyTable()
         table.field_names = ["Name", "Company", "Email", "Birthday", "Phone", "Tags", "Address"]
@@ -141,7 +141,6 @@ class Record:
         ])
 
         return Fore.BLUE + str(table)
-
 
     def to_dict(self):
         record_dict = {
@@ -174,15 +173,5 @@ class Record:
             raise AttributeError(f"Field {field_name} not found in record")
 
 
-if __name__ == "__main__":
-    test_contact = Record(
-        name="Vlad",
-        phone="0963610573",
-        email="skoper@afkas.com",
-        tag="Student",
-        address="lavatorial 34",
-        company="go it",
-        birthday="2000-01-28",
-    )
-    for rec in test_contact.phone:
-        print(rec)
+
+

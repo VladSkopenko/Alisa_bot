@@ -2,10 +2,10 @@ from collections import UserList
 
 from Decorators.Table_decorator import table_decorator
 from Connect_db import RecordDocument, connect, URI
-from Record import Record
 
 
 class AddressBook(UserList):
+
     def __init__(self):
         super().__init__()
         self.load_records_from_db()
@@ -19,13 +19,8 @@ class AddressBook(UserList):
     def to_dict(self):
         return [contact.to_dict() for contact in self]
 
-    def load_from_db(self):
-        records = RecordDocument.objects()
-        for record in records:
-            self.append(record)
-
     @table_decorator
-    def display_records(self):
+    def __str__(self):
         data = []
         for record in self:
             record_dict = record.to_mongo().to_dict()
@@ -36,4 +31,4 @@ class AddressBook(UserList):
 
 if __name__ == "__main__":
     ad = AddressBook()
-    print(ad.display_records())
+    print(ad)
