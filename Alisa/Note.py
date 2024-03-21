@@ -1,6 +1,6 @@
 import sqlite3
 
-from ..Decorators.Table_decorator import table_decorator
+from Alisa.Decorators.Table_decorator import table_decorator
 
 
 class NoteManager:
@@ -38,5 +38,7 @@ class NoteManager:
 
 
 if __name__ == "__main__":
-    note_man = NoteManager()
-    print(note_man)
+    a = NoteManager()
+    print(a)
+
+
