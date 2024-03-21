@@ -1,6 +1,6 @@
 import sqlite3
 
-from Decorators.Table_decorator import table_decorator
+from ..Decorators.Table_decorator import table_decorator
 
 
 class NoteManager:
