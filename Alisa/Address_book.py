@@ -1,6 +1,6 @@
 from collections import UserList
 
-from Decorators.Table_decorator import  table_decorator
+from Decorators.Table_decorator import table_decorator
 from Connect_db import RecordDocument, connect, URI
 
 

@@ -1,6 +1,6 @@
 from re import match
 from colorama import Fore
-from Field import Field
+from Alisa.models.Field import Field
 
 
 class Phone(Field):

@@ -1,6 +1,6 @@
 from mongoengine import Document, connect, StringField, ListField
 import configparser
-from Record import Record
+from Alisa.models.Record import Record
 
 file_config = 'config.ini'
 config = configparser.ConfigParser()

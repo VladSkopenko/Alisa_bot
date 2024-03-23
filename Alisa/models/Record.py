@@ -1,9 +1,8 @@
-from DataField import DataField
-from Birthday import Birthday
-from Email import Email
-from Phone import Phone
+from Alisa.models.DataField import DataField
+from Alisa.models.Birthday import Birthday
+from Alisa.models.Email import Email
+from Alisa.models.Phone import Phone
 from Alisa.Decorators.Table_decorator import table_decorator
-
 
 
 class Record:
