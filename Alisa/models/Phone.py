@@ -1,7 +1,5 @@
 from re import match
-
 from colorama import Fore
-
 from Field import Field
 
 
