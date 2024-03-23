@@ -77,3 +77,17 @@ class Record:
                     field.value = new_value
         else:
             raise AttributeError(f"Field {field_name} not found in record")
+
+
+if __name__ == "__main__":
+    per = Record(name="Vlad",
+                 phone="380961630573",
+                 tag="student",
+                 email="exsam@fa.com",
+                 birthday="2000-01-28",
+                 company="go it",
+                 address="address231213"
+                 )
+    per.tags.append(DataField("Test"))
+    per.phone.append(Phone("0961610523"))
+    print(per)
