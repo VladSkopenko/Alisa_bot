@@ -9,6 +9,7 @@ fake = Faker()
 def generate_fake_phone_number():
     return '0' + str(fake.random_number(digits=9))
 
+
 def fake_seed():
     for _ in range(10):
         valid_contact = Record(
