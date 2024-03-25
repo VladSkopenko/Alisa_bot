@@ -1,5 +1,4 @@
 from faker import Faker
-from Connect_db import update_db, connect
 from Record import Record
 from Connect_db import RecordDocument
 
