@@ -1,7 +1,7 @@
-from mongoengine import Document, connect, StringField, ListField
+from mongoengine import connect, get_db
 import configparser
 from Alisa.models.Record import Record
-
+from models.RecordDocument import RecordDocument
 file_config = 'config.ini'
 config = configparser.ConfigParser()
 config.read(file_config)
@@ -11,6 +11,7 @@ domain = config.get('DEV_DB', 'domain')
 
 URI = f"mongodb+srv://{user}:{password}@{domain}.x6ks5fo.mongodb.net/?retryWrites=true&w=majority"
 connect(db="MongoAlise", host=URI)
+DB = get_db()
 
 
 def update_db():
@@ -33,16 +34,6 @@ def update_db():
         birthday=str(valid_contact.birthday),
     )
     contact_for_db.save()
-
-
-class RecordDocument(Document):
-    name = StringField()
-    phone = ListField(StringField(), auto_creation=True)
-    tag = ListField(StringField(), auto_creation=True)
-    email = StringField()
-    birthday = StringField()
-    company = StringField()
-    address = StringField()
 
 
 

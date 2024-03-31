@@ -1,7 +1,7 @@
 from collections import UserList
 
 from Decorators.Table_decorator import table_decorator
-from Connect_db import RecordDocument, connect, URI
+from Connect_db import RecordDocument, connect, URI, DB
 
 
 class AddressBook(UserList):
@@ -20,6 +20,12 @@ class AddressBook(UserList):
     def to_dict(self):
         return [contact.to_dict() for contact in self]
 
+    @staticmethod
+    def clear_base():
+        collections = DB.list_collection_names()
+        for collection in collections:
+            DB.drop_collection(collection)
+
     @table_decorator()
     def __str__(self):
         data = []
@@ -30,6 +36,7 @@ class AddressBook(UserList):
         return data
 
 
+ADDRESS_BOOK = AddressBook
 if __name__ == "__main__":
-    ad = AddressBook()
-    print(ad)
+    ...
+

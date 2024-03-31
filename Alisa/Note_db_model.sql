@@ -5,4 +5,5 @@ CREATE TABLE notes (
     title VARCHAR(35) UNIQUE NOT NULL,
     date_of_update DATE DEFAULT CURRENT_DATE,
     note TEXT
+    com
 );
