@@ -1,4 +1,4 @@
-from Alisa.models.Field import Field
+from Alisa.models.field import Field
 from datetime import datetime
 from colorama import Fore
 

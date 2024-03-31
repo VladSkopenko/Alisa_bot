@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 from models.record import Record
 from Address_book import AddressBook
 from models.RecordDocument import RecordDocument
+from Decorators.Table_decorator import table_decorator
 
 
 class AbstractBot(ABC):
@@ -47,18 +48,25 @@ class EditBot(AbstractBot):
 
 
 class FindBot(AbstractBot):
-    ...
+
+    def handle(self, name: str) -> list[Record]:
+        """
+        Find records in the database by name.
+        """
+        for record_doc in self.address_book:
+            if record_doc.name.lower() == name.lower():
+                record = Record(
+                    name=record_doc.name,
+                    phone=record_doc.phone,
+                    tag=record_doc.tag,
+                    email=record_doc.email,
+                    birthday=record_doc.birthday,
+                    company=record_doc.company,
+                    address=record_doc.address
+                )
+                print(record)
 
 
 if __name__ == "__main__":
-    ad = AddBot()
-    per = Record(name="Liuda",
-                 phone="380961630573",
-                 tag="mentor",
-                 email="exsam@fa.com",
-                 birthday="1990-12-18",
-                 company="soft",
-                 address="address231213"
-                 )
-    rm = RemoveBot()
-    rm.handle("6609ecc0db3f7ece52a472ca")
+    ...
+

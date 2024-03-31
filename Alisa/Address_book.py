@@ -1,7 +1,8 @@
 from collections import UserList
 
 from Decorators.Table_decorator import table_decorator
-from Connect_db import RecordDocument, connect, URI, DB
+from Connect_db import connect, URI, DB
+from models.RecordDocument import RecordDocument
 
 
 class AddressBook(UserList):

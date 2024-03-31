@@ -1,7 +1,7 @@
 from Alisa.models.DataField import DataField
-from Alisa.models.Birthday import Birthday
-from Alisa.models.Email import Email
-from Alisa.models.Phone import Phone
+from Alisa.models.birthday import Birthday
+from Alisa.models.email import Email
+from Alisa.models.phone import Phone
 from Alisa.Decorators.Table_decorator import table_decorator
 
 

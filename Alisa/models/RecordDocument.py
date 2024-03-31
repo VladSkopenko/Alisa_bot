@@ -1,6 +1,7 @@
 from mongoengine import Document, StringField, ListField
 
 
+
 class RecordDocument(Document):
     name = StringField()
     phone = ListField(StringField(), auto_creation=True)
@@ -9,3 +10,4 @@ class RecordDocument(Document):
     birthday = StringField()
     company = StringField()
     address = StringField()
+

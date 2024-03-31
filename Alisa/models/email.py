@@ -1,6 +1,6 @@
 from re import match
 from colorama import Fore
-from Alisa.models.Field import Field
+from Alisa.models.field import Field
 
 
 class Email(Field):
