@@ -36,7 +36,6 @@ class AddressBook(UserList):
         return data
 
 
-ADDRESS_BOOK = AddressBook()
+ADDRESSBOOK = AddressBook()
 if __name__ == "__main__":
-    print(ADDRESS_BOOK)
-
+    print(ADDRESSBOOK)

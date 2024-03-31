@@ -3,7 +3,7 @@ from Record import Record
 from Connect_db import RecordDocument
 from random import choice
 
-fake = Faker('uk_UA')
+fake = Faker()
 
 
 def generate_fake_phone_number():
@@ -11,7 +11,7 @@ def generate_fake_phone_number():
     return choice(list_phone)
 
 
-def fake_seed():
+def seed():
     for _ in range(10):
         valid_contact = Record(
             name=fake.name(),
