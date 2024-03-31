@@ -1,12 +1,14 @@
 from faker import Faker
 from Record import Record
 from Connect_db import RecordDocument
+from random import choice
 
-fake = Faker()
+fake = Faker('uk_UA')
 
 
 def generate_fake_phone_number():
-    return '0' + str(fake.random_number(digits=9))
+    list_phone = ["380961610573", "0961234586", "380631034048"]
+    return choice(list_phone)
 
 
 def fake_seed():
@@ -30,3 +32,8 @@ def fake_seed():
             birthday=str(valid_contact.birthday),
         )
         contact_for_db.save()
+
+
+if __name__ == "__main__":
+    for _ in range(3):
+        fake_seed()

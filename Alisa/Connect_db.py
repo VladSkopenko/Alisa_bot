@@ -2,6 +2,8 @@ from mongoengine import connect, get_db
 import configparser
 from Alisa.models.Record import Record
 from models.RecordDocument import RecordDocument
+
+
 file_config = 'config.ini'
 config = configparser.ConfigParser()
 config.read(file_config)
