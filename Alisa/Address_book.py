@@ -18,7 +18,6 @@ class AddressBook(UserList):
     def import_record(self):
         ...
 
-
     def load_records_from_db(self):
         connect(db="MongoAlise", host=URI)
 

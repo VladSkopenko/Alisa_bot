@@ -33,8 +33,6 @@ class AbstractBot(ABC):
         )
         return record
 
-    def help(self):
-        ...
 
 
 class AddBot(AbstractBot):
@@ -107,16 +105,5 @@ class FindBot(AbstractBot):
                 print(record)
 
 
-
-
 if __name__ == "__main__":
-    ed = EditBot()
-    p = Record(name="vlad",
-               phone="380961630573",
-               tag="student",
-               email="exsam@fa.com",
-               birthday="2000-01-28",
-               company="go it",
-               address="address231213"
-               )
-    ed.handle('Oleg', p)
+    ...

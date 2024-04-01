@@ -1,6 +1,6 @@
 from faker import Faker
 from Record import Record
-from Connect_db import RecordDocument
+from models.RecordDocument import RecordDocument
 from random import choice
 
 fake = Faker()
