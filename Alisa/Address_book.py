@@ -12,6 +12,13 @@ class AddressBook(UserList):
         super().__init__()
         self.load_records_from_db()
 
+    def export_contacts_by_tag(self):
+        ...
+
+    def import_record(self):
+        ...
+
+
     def load_records_from_db(self):
         connect(db="MongoAlise", host=URI)
 

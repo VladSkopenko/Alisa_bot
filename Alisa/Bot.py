@@ -2,7 +2,6 @@ from abc import ABC, abstractmethod
 from models.record import Record
 from Address_book import AddressBook
 from models.RecordDocument import RecordDocument
-from Decorators.Table_decorator import table_decorator
 
 
 class AbstractBot(ABC):
@@ -10,8 +9,11 @@ class AbstractBot(ABC):
         self.address_book = AddressBook()
 
     @abstractmethod
-    def handle(self):
+    def handle(self, *args):
         pass
+
+    def help(self):
+        ...
 
 
 class AddBot(AbstractBot):
@@ -44,12 +46,29 @@ class RemoveBot(AbstractBot):
 
 
 class EditBot(AbstractBot):
-    ...
+
+    def handle(self, name: str, record: Record) -> None | str:
+        """
+        Edit a record in the database based on its ID.
+        """
+        record_from_db = RecordDocument.objects(name=name).first()
+        if record_from_db:
+            record_from_db.name = str(record.name)
+            record_from_db.phone = [str(phone) for phone in record.phone]
+            record_from_db.email = str(record.email)
+            record_from_db.tag = [str(tag) for tag in record.tags]
+            record_from_db.address = str(record.address)
+            record_from_db.company = str(record.company)
+            record_from_db.birthday = str(record.birthday)
+            record_from_db.save()
+            return "Record updated successfully"  # Залогіровать
+        else:
+            return "Record not found"  # Залогіровать
 
 
 class FindBot(AbstractBot):
 
-    def handle(self, name: str) -> list[Record]:
+    def handle(self, name: str) -> None:
         """
         Find records in the database by name.
         """
@@ -68,5 +87,13 @@ class FindBot(AbstractBot):
 
 
 if __name__ == "__main__":
-    ...
-
+    ed = EditBot()
+    p = Record(name="vlad",
+               phone="380961630573",
+               tag="student",
+               email="exsam@fa.com",
+               birthday="2000-01-28",
+               company="go it",
+               address="address231213"
+               )
+    ed.handle('Oleg', p)
