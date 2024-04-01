@@ -1,5 +1,5 @@
 from faker import Faker
-from Record import Record
+from old_file.Record import Record
 from models.RecordDocument import RecordDocument
 from random import choice
 

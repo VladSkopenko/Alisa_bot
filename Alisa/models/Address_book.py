@@ -1,8 +1,8 @@
 from collections import UserList
 
-from Decorators.Table_decorator import table_decorator
-from Connect_db import connect, URI, DB
-from models.RecordDocument import RecordDocument
+from Alisa.Decorators.Table_decorator import table_decorator
+from Alisa.datebase.Connect_db import connect, URI, DB
+from Alisa.models.RecordDocument import RecordDocument
 
 
 class AddressBook(UserList):
