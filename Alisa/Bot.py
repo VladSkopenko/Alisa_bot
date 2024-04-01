@@ -12,6 +12,27 @@ class AbstractBot(ABC):
     def handle(self, *args):
         pass
 
+    @staticmethod
+    def get_user_input_for_record_creation() -> Record:
+        name = input("Enter name: ")
+        phone = input("Enter phone number: ")
+        tag = input("Enter tag: ")
+        email = input("Enter email: ")
+        birthday = input("Enter birthday (YYYY-MM-DD): ")
+        company = input("Enter company: ")
+        address = input("Enter address: ")
+
+        record = Record(
+            name=name,
+            phone=phone,
+            tag=tag,
+            email=email,
+            birthday=birthday,
+            company=company,
+            address=address
+        )
+        return record
+
     def help(self):
         ...
 
@@ -84,6 +105,8 @@ class FindBot(AbstractBot):
                     address=record_doc.address
                 )
                 print(record)
+
+
 
 
 if __name__ == "__main__":
