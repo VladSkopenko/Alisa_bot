@@ -7,10 +7,19 @@ from Alisa.models.RecordDocument import RecordDocument
 
 class AddressBook(UserList):
     __headers = ["id", "name", "phone", "tags", "email", "birthday", "company", "address"]
+    __instance = None
+
+    def __new__(cls, *args, **kwargs):
+        if cls.__instance is None:
+            cls.__instance = super().__new__(cls)
+        return cls.__instance
 
     def __init__(self):
-        super().__init__()
-        self.load_records_from_db()
+        if not hasattr(self, 'initialized'):
+            super().__init__()
+            self.load_records_from_db()
+            self.initialized = True
+
 
     def export_contacts_by_tag(self):
         ...
