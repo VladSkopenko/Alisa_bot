@@ -1,25 +1,16 @@
 from collections import UserList
 
-from Alisa.Decorators.Table_decorator import table_decorator
-from Alisa.datebase.Connect_db import connect, URI, DB
-from Alisa.models.RecordDocument import RecordDocument
+from Decorators.Table_decorator import table_decorator
+from datebase.Connect_db import connect, DB, URI
+from models.RecordDocument import RecordDocument
 
 
 class AddressBook(UserList):
     __headers = ["id", "name", "phone", "tags", "email", "birthday", "company", "address"]
-    __instance = None
-
-    def __new__(cls, *args, **kwargs):
-        if cls.__instance is None:
-            cls.__instance = super().__new__(cls)
-        return cls.__instance
 
     def __init__(self):
-        if not hasattr(self, 'initialized'):
-            super().__init__()
-            self.load_records_from_db()
-            self.initialized = True
-
+        super().__init__()
+        self.load_records_from_db()
 
     def export_contacts_by_tag(self):
         ...
@@ -29,7 +20,6 @@ class AddressBook(UserList):
 
     def load_records_from_db(self):
         connect(db="MongoAlise", host=URI)
-
         records_from_db = RecordDocument.objects().all()
         self.extend(records_from_db)
 

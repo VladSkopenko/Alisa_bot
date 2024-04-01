@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 from Alisa.models.record import Record
-from Alisa.models.Address_book import AddressBook
+from Alisa.Address_book import AddressBook
 
 
 class AbstractBot(ABC):

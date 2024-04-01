@@ -3,9 +3,9 @@ def error_handler(func):
         try:
             result = func(*args, **kwargs)
             return result
-        except ValueError as ve:
+        except ValueError:
             print(f"ValueError")
-        except AttributeError as a:
+        except AttributeError:
             print(f"AttributeError")
         except TypeError:
             print(f"TypeError")
