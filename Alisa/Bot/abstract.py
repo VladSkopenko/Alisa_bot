@@ -32,3 +32,7 @@ class AbstractBot(ABC):
             address=address
         )
         return record
+
+
+if __name__ == "__main__":
+    ...

@@ -12,3 +12,7 @@ class RemoveBot(AbstractBot):
         record = RecordDocument.objects(id=record_id).first()
         if record:
             record.delete()
+
+
+if __name__ == "__main__":
+    ...

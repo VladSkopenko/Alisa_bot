@@ -19,3 +19,7 @@ class AddBot(AbstractBot):
             birthday=str(record.birthday),
         )
         contact_for_db.save()
+
+
+if __name__ == "__main__":
+    ...

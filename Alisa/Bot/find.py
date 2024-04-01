@@ -20,3 +20,7 @@ class FindBot(AbstractBot):
                     address=record_doc.address
                 )
                 print(record)
+
+
+if __name__ == "__main__":
+    ...

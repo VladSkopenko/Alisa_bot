@@ -22,3 +22,7 @@ class EditBot(AbstractBot):
             return "Record updated successfully"
         else:
             return "Record not found"
+
+
+if __name__ == "__main__":
+    ...
