@@ -10,9 +10,10 @@ config = configparser.ConfigParser()
 config.read(config_path)
 user = config.get('DEV_DB', 'USER')
 password = config.get('DEV_DB', 'PASSWORD')
-domain = config.get('DEV_DB', 'domain')
+domain = config.get('DEV_DB', 'DOMAIN')
+secret = config.get('DEV_DB', 'SECRET')
 disconnect(alias='default')
-URI = f"mongodb+srv://vladgo:1111@goitlearn.x6ks5fo.mongodb.net/?retryWrites=true&w=majority"
+URI = f"mongodb+srv://{user}:{password}@{domain}.{secret}"
 connect(db="MongoAlise", host=URI)
 DB = get_db()
 
