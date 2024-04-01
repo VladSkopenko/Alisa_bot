@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+
 from Alisa.models.record import Record
 from Alisa.Address_book import AddressBook
 
