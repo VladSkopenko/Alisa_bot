@@ -1,0 +1,4 @@
+colorama
+mongoengine
+faker
+tabulate
