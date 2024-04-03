@@ -1,7 +1,10 @@
+
 from abc import ABC, abstractmethod
+from colorama import Fore
 
 from Alisa.models.record import Record
 from Alisa.Address_book import AddressBook
+
 
 
 class AbstractBot(ABC):
@@ -14,13 +17,13 @@ class AbstractBot(ABC):
 
     @staticmethod
     def get_user_input_for_record_creation() -> Record:
-        name = input("Enter name: ")
-        phone = input("Enter phone number: ")
-        tag = input("Enter tag: ")
-        email = input("Enter email: ")
-        birthday = input("Enter birthday (YYYY-MM-DD): ")
-        company = input("Enter company: ")
-        address = input("Enter address: ")
+        name = input(Fore.RED + "Enter name: ")
+        phone = input(Fore.GREEN + "Enter phone number: ")
+        tag = input(Fore.LIGHTRED_EX + "Enter tag: ")
+        email = input(Fore.MAGENTA + "Enter email: ")
+        birthday = input(Fore.LIGHTCYAN_EX + "Enter birthday (YYYY-MM-DD): ")
+        company = input(Fore.RESET + "Enter company: ")
+        address = input(Fore.LIGHTYELLOW_EX + "Enter address: ")
 
         record = Record(
             name=name,
