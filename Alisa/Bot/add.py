@@ -1,9 +1,15 @@
-from abstract import AbstractBot
+import sys
+import os
+
+module_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+sys.path.append(module_path)
+
+from Alisa.Bot import abstract
 from Alisa.models.record import Record
 from Alisa.models.RecordDocument import RecordDocument
 
 
-class AddBot(AbstractBot):
+class AddBot(abstract.AbstractBot):
 
     def handle(self, record: Record) -> None:
         """
