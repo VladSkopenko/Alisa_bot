@@ -1,12 +1,12 @@
 import sys
 import os
 
-module_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-sys.path.append(module_path)
-
 from Alisa.Bot import abstract
 from Alisa.models.record import Record
 from Alisa.models.RecordDocument import RecordDocument
+
+module_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+sys.path.append(module_path)
 
 
 class AddBot(abstract.AbstractBot):
