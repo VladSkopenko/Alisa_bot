@@ -75,7 +75,7 @@ class Record:
                 if field.value == old_value:
                     field.value = new_value
         else:
-            raise AttributeError(f"Field {field_name} not found in record")
+            raise AttributeError(f"Field {field_name} not found in record") # todo
 
 
 if __name__ == "__main__":

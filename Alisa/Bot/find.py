@@ -23,4 +23,5 @@ class FindBot(AbstractBot):
 
 
 if __name__ == "__main__":
-    ...
+    ad = FindBot()
+    ad.handle("Vlad")
