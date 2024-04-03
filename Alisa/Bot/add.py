@@ -22,4 +22,5 @@ class AddBot(AbstractBot):
 
 
 if __name__ == "__main__":
-    ...
+    add = AddBot()
+    add.handle(add.get_user_input_for_record_creation())
