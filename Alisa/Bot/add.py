@@ -1,15 +1,9 @@
-import sys
-import os
-
-from Alisa.Bot import abstract
+from abstract import AbstractBot
 from Alisa.models.record import Record
 from Alisa.models.RecordDocument import RecordDocument
 
-module_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-sys.path.append(module_path)
 
-
-class AddBot(abstract.AbstractBot):
+class AddBot(AbstractBot):
 
     def handle(self, record: Record) -> None:
         """
@@ -30,4 +24,3 @@ class AddBot(abstract.AbstractBot):
 if __name__ == "__main__":
     add = AddBot()
     add.handle(add.get_user_input_for_record_creation())
-

@@ -1,10 +1,14 @@
+from abc import ABC
+from abc import abstractmethod
+import sys
+import os
 
-from abc import ABC, abstractmethod
+sys.path.append(os.path.join(os.getcwd(), "..", ".."))  # cd ..
+
 from colorama import Fore
 
-from Alisa.models.record import Record
 from Alisa.Address_book import AddressBook
-
+from Alisa.models.record import Record
 
 
 class AbstractBot(ABC):
@@ -39,5 +43,3 @@ class AbstractBot(ABC):
 
 if __name__ == "__main__":
     ...
-
-

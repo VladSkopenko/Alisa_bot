@@ -12,7 +12,7 @@ class RemoveBot(AbstractBot):
         record = RecordDocument.objects(id=record_id).first()
         if record:
             record.delete()
-            return "Successfully deleted" # todo add color
+            return "Successfully deleted"  # todo add color
 
 
 
