@@ -1,7 +1,7 @@
 from collections import UserList
 
 from Alisa.Decorators.Table_decorator import table_decorator
-from Alisa.datebase.Connect_db import connect, DB, URI
+from Alisa.datebase.Connect_db import connect, DB, db, URI
 from Alisa.models.RecordDocument import RecordDocument
 
 
@@ -19,7 +19,7 @@ class AddressBook(UserList):
         ...
 
     def load_records_from_db(self):
-        connect(db="MongoAlise", host=URI)
+        connect(db=db, host=URI)
         records_from_db = RecordDocument.objects().all()
         self.extend(records_from_db)
 
