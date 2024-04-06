@@ -9,13 +9,13 @@ services:
 
   postgres:
     image: postgres
-    container_name: postgres
+    container_name: postgres_fali
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_DB:
-      POSTGRES_USER:
-      POSTGRES_PASSWORD:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
 
   mongo:
     image: mongo
@@ -23,6 +23,4 @@ services:
     ports:
       - "27017:27017"
     environment:
-      MONGO_INITDB_DATABASE:
-      MONGO_INITDB_ROOT_USERNAME:
-      MONGO_INITDB_ROOT_PASSWORD:
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}

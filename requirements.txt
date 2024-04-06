@@ -3,3 +3,4 @@ mongoengine
 faker
 tabulate
 pydantic
+pydantic-settings
