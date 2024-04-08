@@ -4,3 +4,4 @@ faker
 tabulate
 pydantic
 pydantic-settings
+qrcode
