@@ -1,7 +1,17 @@
-colorama
-mongoengine
-faker
-tabulate
-pydantic
-pydantic-settings
-qrcode
+annotated-types==0.6.0
+colorama==0.4.6
+dnspython==2.6.1
+Faker==24.4.0
+mongoengine==0.28.2
+pillow==10.3.0
+pip==24.0
+pydantic== 2.6.4
+pydantic-settings==2.2.1
+pymongo==4.6.3
+pypng==0.20220715.0
+python-dateutil==2.9.0.post0
+python-dotenv==1.0.1
+qrcode==7.4.2
+six==1.16.0
+tabulate==0.9.0
+typing_extensions==4.11.0
