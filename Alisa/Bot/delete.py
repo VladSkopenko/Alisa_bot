@@ -1,5 +1,6 @@
-from abstract import AbstractBot
+from colorama import Fore
 
+from abstract import AbstractBot
 from Alisa.models.RecordDocument import RecordDocument
 
 
@@ -12,7 +13,7 @@ class RemoveBot(AbstractBot):
         record = RecordDocument.objects(id=record_id).first()
         if record:
             record.delete()
-            return "Successfully deleted"  # todo add color
+            return Fore.LIGHTCYAN_EX + "Successfully deleted"  # todo add color
 
 
 
