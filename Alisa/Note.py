@@ -40,5 +40,3 @@ class NoteManager:
 if __name__ == "__main__":
     a = NoteManager()
     print(a)
-
-

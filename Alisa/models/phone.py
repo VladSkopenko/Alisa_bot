@@ -1,5 +1,7 @@
 from re import match
+
 from colorama import Fore
+
 from Alisa.models.field import Field
 
 
@@ -21,9 +23,8 @@ class Phone(Field):
                 validated_numbers.append(self.validate(number))
             return validated_numbers
         else:
-            raise ValueError("Phone must be a string or a list of strings") # TODO For student
+            raise ValueError("Phone must be a string or a list of strings")  # TODO For student
 
 
 if __name__ == "__main__":
     ...
-

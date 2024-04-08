@@ -1,6 +1,8 @@
-from Alisa.models.field import Field
 from datetime import datetime
+
 from colorama import Fore
+
+from Alisa.models.field import Field
 
 
 class Birthday(Field):
@@ -16,7 +18,7 @@ class Birthday(Field):
             date_format = "%Y-%m-%d"
             parsed_date = datetime.strptime(birthday, date_format).date()
             if parsed_date > datetime.now().date():
-                raise ValueError("Birthday date cannot be in the future") #todo add color
+                raise ValueError("Birthday date cannot be in the future")  # todo add color
             return birthday
         except ValueError:
             raise ValueError(Fore.BLUE + "Invalid birthday date, format Year-month-day")

@@ -1,8 +1,8 @@
-from Alisa.models.DataField import DataField
+from Alisa.Decorators.Table_decorator import table_decorator
 from Alisa.models.birthday import Birthday
+from Alisa.models.DataField import DataField
 from Alisa.models.email import Email
 from Alisa.models.phone import Phone
-from Alisa.Decorators.Table_decorator import table_decorator
 
 
 class Record:
@@ -75,7 +75,7 @@ class Record:
                 if field.value == old_value:
                     field.value = new_value
         else:
-            raise AttributeError(f"Field {field_name} not found in record") # todo
+            raise AttributeError(f"Field {field_name} not found in record")  # todo
 
 
 if __name__ == "__main__":

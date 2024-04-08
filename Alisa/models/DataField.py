@@ -1,5 +1,6 @@
-from Alisa.models.field import Field
 from colorama import Fore
+
+from Alisa.models.field import Field
 
 
 class DataField(Field):

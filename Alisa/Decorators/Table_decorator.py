@@ -1,5 +1,5 @@
-from tabulate import tabulate
 from colorama import Fore
+from tabulate import tabulate
 
 
 def table_decorator(headers=None):

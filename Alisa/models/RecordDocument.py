@@ -1,4 +1,6 @@
-from mongoengine import Document, StringField, ListField
+from mongoengine import Document
+from mongoengine import ListField
+from mongoengine import StringField
 
 
 class RecordDocument(Document):

@@ -7,5 +7,3 @@ def create_db():
     with sqlite3.connect('Notes.db') as con:
         cur = con.cursor()
         cur.executescript(sql)
-
-

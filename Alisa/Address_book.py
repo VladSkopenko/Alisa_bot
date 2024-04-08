@@ -1,7 +1,10 @@
 from collections import UserList
 
+from Alisa.datebase.Connect_db import connect
+from Alisa.datebase.Connect_db import DB
+from Alisa.datebase.Connect_db import db
+from Alisa.datebase.Connect_db import URI
 from Alisa.Decorators.Table_decorator import table_decorator
-from Alisa.datebase.Connect_db import connect, DB, db, URI
 from Alisa.models.RecordDocument import RecordDocument
 
 

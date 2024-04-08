@@ -1,7 +1,9 @@
-from abstract import AbstractBot
-from PIL import Image
-import qrcode
 import uuid
+
+import qrcode
+from PIL import Image
+
+from abstract import AbstractBot
 
 
 class QRBot(AbstractBot):
@@ -19,4 +21,3 @@ class QRBot(AbstractBot):
 if __name__ == "__main__":
     q = QRBot()
     q.handle("https://github.com/LudSkop")
-
