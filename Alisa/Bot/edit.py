@@ -1,3 +1,4 @@
+from colorama import Fore
 from abstract import AbstractBot
 from Alisa.models.record import Record
 from Alisa.models.RecordDocument import RecordDocument
@@ -19,9 +20,9 @@ class EditBot(AbstractBot):
             record_from_db.company = str(record.company)
             record_from_db.birthday = str(record.birthday)
             record_from_db.save()
-            return "Record updated successfully"  # TODO додати кольор
+            return Fore.LIGHTBLUE_EX + "Record updated successfully"  # TODO додати кольор
         else:
-            return "Record not found"  # Todo you need to add the color
+            return Fore.LIGHTRED_EX +"Record not found"  # Todo you need to add the color
 
 
 if __name__ == "__main__":
