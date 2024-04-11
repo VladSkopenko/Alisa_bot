@@ -20,9 +20,9 @@ class EditBot(AbstractBot):
             record_from_db.company = str(record.company)
             record_from_db.birthday = str(record.birthday)
             record_from_db.save()
-            return Fore.LIGHTBLUE_EX + "Record updated successfully"  # TODO додати кольор
+            return Fore.LIGHTBLUE_EX + "Record updated successfully" 
         else:
-            return Fore.LIGHTRED_EX +"Record not found"  # Todo you need to add the color
+            return Fore.LIGHTRED_EX +"Record not found"  
 
 
 if __name__ == "__main__":
