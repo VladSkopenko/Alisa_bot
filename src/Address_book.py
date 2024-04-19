@@ -1,11 +1,11 @@
 from collections import UserList
 
-from Alisa.datebase.Connect_db import connect
-from Alisa.datebase.Connect_db import DB
-from Alisa.datebase.Connect_db import db
-from Alisa.datebase.Connect_db import URI
-from Alisa.Decorators.Table_decorator import table_decorator
-from Alisa.models.RecordDocument import RecordDocument
+from src.datebase.Connect_db import connect
+from src.datebase.Connect_db import DB
+from src.datebase.Connect_db import db
+from src.datebase.Connect_db import URI
+from src.Decorators.Table_decorator import table_decorator
+from src.models.RecordDocument import RecordDocument
 
 
 class AddressBook(UserList):

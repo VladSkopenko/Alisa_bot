@@ -9,7 +9,7 @@ services:
 
   postgres:
     image: postgres
-    container_name: postgres_fali
+    container_name: postgres_alisa
     ports:
       - "5432:5432"
     environment:

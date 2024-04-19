@@ -1,7 +1,7 @@
 from colorama import Fore
 
 from abstract import AbstractBot
-from Alisa.models.RecordDocument import RecordDocument
+from src.models.RecordDocument import RecordDocument
 
 
 class RemoveBot(AbstractBot):

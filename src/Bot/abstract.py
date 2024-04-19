@@ -3,12 +3,12 @@ import sys
 from abc import ABC
 from abc import abstractmethod
 
-sys.path.append(os.path.join(os.getcwd(), "..", ".."))  # cd ..
+# sys.path.append(os.path.join(os.getcwd(), "..", ".."))  # cd ..
 
 from colorama import Fore
 
-from Alisa.Address_book import AddressBook
-from Alisa.models.record import Record
+from src.Address_book import AddressBook
+from src.models.record import Record
 
 
 class AbstractBot(ABC):

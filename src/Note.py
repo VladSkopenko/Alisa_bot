@@ -1,6 +1,6 @@
 import sqlite3
 
-from Alisa.Decorators.Table_decorator import table_decorator
+from src.Decorators.Table_decorator import table_decorator
 
 
 class NoteManager:

@@ -1,6 +1,6 @@
 from abstract import AbstractBot
-from Alisa.models.record import Record
-from Alisa.models.RecordDocument import RecordDocument
+from src.models.record import Record
+from src.models.RecordDocument import RecordDocument
 
 
 class AddBot(AbstractBot):

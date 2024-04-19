@@ -1,5 +1,5 @@
 from abstract import AbstractBot
-from Alisa.models.record import Record
+from src.models.record import Record
 
 
 class FindBot(AbstractBot):

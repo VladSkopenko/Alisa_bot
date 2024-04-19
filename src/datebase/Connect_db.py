@@ -2,7 +2,7 @@ from mongoengine import connect
 from mongoengine import disconnect
 from mongoengine import get_db
 
-from Alisa.datebase.config import settings
+from src.datebase.config import settings
 
 disconnect(alias='default')
 
