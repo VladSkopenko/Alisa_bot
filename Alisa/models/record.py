@@ -3,6 +3,7 @@ from Alisa.models.birthday import Birthday
 from Alisa.models.DataField import DataField
 from Alisa.models.email import Email
 from Alisa.models.phone import Phone
+from colorama import Fore
 
 
 class Record:
@@ -75,7 +76,7 @@ class Record:
                 if field.value == old_value:
                     field.value = new_value
         else:
-            raise AttributeError(f"Field {field_name} not found in record")  # todo
+            raise AttributeError(Fore.LIGHTRED_EX + f"Field {field_name} not found in record")  
 
 
 if __name__ == "__main__":
