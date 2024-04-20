@@ -23,7 +23,7 @@ class Phone(Field):
                 validated_numbers.append(self.validate(number))
             return validated_numbers
         else:
-            raise ValueError("Phone must be a string or a list of strings")  # TODO For student
+            raise ValueError(Fore.LIGHTRED_EX + "Phone must be a string or a list of strings")  
 
 
 if __name__ == "__main__":
