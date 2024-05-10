@@ -3,6 +3,7 @@ from src.models.record import Record
 from src.models.RecordDocument import RecordDocument
 from colorama import Fore
 
+
 class EditBot(AbstractBot):
 
     def handle(self, name: str, record: Record) -> None | str:

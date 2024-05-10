@@ -1,13 +1,9 @@
-import os
-import sys
 from abc import ABC
 from abc import abstractmethod
 
-# sys.path.append(os.path.join(os.getcwd(), "..", ".."))  # cd ..
-
 from colorama import Fore
 
-from src.Address_book import AddressBook
+from models.Address_book import AddressBook
 from src.models.record import Record
 
 
