@@ -43,7 +43,7 @@ class AddressBook(UserList):
         :return: A list of recorddocument objects
         :doc-author: Trelent
         """
-        connect.connect(db=db, host=URI)
+        connect(db=db, host=URI)
         records_from_db = RecordDocument.objects().all()
         self.extend(records_from_db)
 

@@ -5,7 +5,7 @@ from src.models.record_document import RecordDocument
 
 class AddBot(AbstractBot):
 
-    def handle(self, record: Record) -> None:
+    def handle(self, record: Record = None) -> None:
         """
         The handle function is the main function of this class. It takes a Record object as an argument and saves it to the database.
 
@@ -14,6 +14,8 @@ class AddBot(AbstractBot):
         :return: None
         :doc-author: Trelent
         """
+        if not record:
+            record = self.get_user_input_for_record_creation()
         contact_for_db = RecordDocument(
             name=str(record.name),
             phone=[str(phone) for phone in record.phone],

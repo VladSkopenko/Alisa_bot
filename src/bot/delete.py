@@ -6,7 +6,7 @@ from src.models.record_document import RecordDocument
 
 class RemoveBot(AbstractBot):
 
-    def handle(self, record_id) -> None:
+    def handle(self, record_id=None) -> None:
         """
         The handle function is the entry point for this command.
         It will be called by the CLI with a record_id argument, which it then uses to delete a record from the database.
@@ -17,6 +17,8 @@ class RemoveBot(AbstractBot):
         :return: None
         :doc-author: Trelent
         """
+        if not record_id:
+            record_id = input(Fore.MAGENTA + "Enter record id: ")
         record = RecordDocument.objects(id=record_id).first()
         if record:
             record.delete()

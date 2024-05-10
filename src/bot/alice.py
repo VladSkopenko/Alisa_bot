@@ -10,60 +10,60 @@ from src.utils.intro import introduce_alice
 
 
 class AlisaBot:
-    handler = {
-        "help": AliceHelp.handle,
-        "add": AliceAddContact.handle,
-        "edit": AliceEditContact.handle,
-        "delete": AliceRemoveBot.handle,
-        "find": AliceFindContact.handle,
-        "show": AliceShowAll.handle,
-        "qr": AliceQR.handle,
-        "exit": AliceExit.handle,
-    }
-
-    def run_bot(self):
-        """
-        The run_bot function is the main function of the program. It runs a while loop that prompts
-        the user for input and then calls the appropriate handler method based on what they entered.
-        The run_bot function also contains some logic to handle invalid commands.
-
-        :param self: Access the instance of the class
-        :return: A string
-        :doc-author: Trelent
-        """
+    def __init__(self):
+        self.handlers = {
+            "add": self.handle_add,
+            "delete": self.handle_delete,
+            "edit": self.handle_edit,
+            "find": self.handle_find,
+            "help": self.handle_help,
+            "qr": self.handle_qr,
+            "show": self.handle_show,
+        }
         introduce_alice()
 
+    def run(self):
         while True:
-            user_command = input(">>> ").lower()
+            user_command = input("Enter command: ").lower()
             if user_command == "exit":
-                self.handler["exit"]()
+                self.handle_exit()
                 break
-            elif user_command == "add":
-                new_contact = AliceAddContact.get_user_input_for_record_creation()
-                self.handler[user_command](new_contact)
-
-            elif user_command == "edit":
-                user_name = input("Enter name: ").lower()
-                new_contact = AliceEditContact.get_user_input_for_record_creation()
-                self.handler[user_command](user_name, new_contact)
-
-            elif user_command == "delete":
-                user_id = input("Enter ID: ")
-                self.handler[user_command](user_id)
-
-            elif user_command == "find":
-                user_name = input("Enter name: ").lower()
-                self.handler[user_command](user_name)
-            elif user_command == "qr":
-
-                link = input("Enter link: ")
-                self.handler[user_command](link)
-
-            elif user_command == "show":
-                self.handler[user_command]()
-
+            elif user_command in self.handlers:
+                self.handlers[user_command]()
             else:
-                self.handler["help"]()
+                self.handle_help()
+
+    @staticmethod
+    def handle_add():
+        AliceAddContact.handle()
+
+    @staticmethod
+    def handle_delete():
+        AliceRemoveBot.handle()
+
+    @staticmethod
+    def handle_edit():
+        AliceEditContact.handle()
+
+    @staticmethod
+    def handle_find():
+        AliceFindContact.handle()
+
+    @staticmethod
+    def handle_help():
+        AliceHelp.handle()
+
+    @staticmethod
+    def handle_qr():
+        AliceQR.handle()
+
+    @staticmethod
+    def handle_show():
+        AliceShowAll.handle()
+
+    @staticmethod
+    def handle_exit():
+        AliceExit.handle()
 
 
-MainBot = AlisaBot()
+bot = AlisaBot()

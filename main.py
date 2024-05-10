@@ -1,5 +1,5 @@
-from src.bot.alice import MainBot
+from src.bot.alice import bot
 
 
 if __name__ == "__main__":
-    MainBot.run_bot()
+    bot.run()

@@ -1,3 +1,5 @@
+from colorama import Fore
+
 from src.bot.abstract import AbstractBot
 from src.models.record import Record
 
@@ -14,6 +16,8 @@ class FindBot(AbstractBot):
         :return: The record of the person whose name is passed as an argument
         :doc-author: Trelent
         """
+        if not name:
+            name = input(Fore.MAGENTA + "Enter name: ")
         for record_doc in self.address_book:
             if record_doc.name.lower() == name.lower():
                 record = Record(

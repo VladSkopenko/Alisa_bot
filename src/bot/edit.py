@@ -7,7 +7,7 @@ from src.models.record_document import RecordDocument
 
 class EditBot(AbstractBot):
 
-    def handle(self, name: str, record: Record) -> None | str:
+    def handle(self, name: str, record: Record = None) -> None | str:
         """
         The handle function is responsible for updating a record in the database.
             It takes two arguments:
@@ -20,6 +20,8 @@ class EditBot(AbstractBot):
         :return: None | str
         :doc-author: Trelent
         """
+        if not record:
+            record = self.get_user_input_for_record_creation()
         record_from_db = RecordDocument.objects(name=name).first()
         if record_from_db:
             record_from_db.name = str(record.name)

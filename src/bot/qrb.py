@@ -18,7 +18,8 @@ class QRBot(AbstractBot):
         :return: None
         :doc-author: Trelent
         """
-
+        if not link:
+            link = input("Enter link: ")
         unique_id = uuid.uuid4()
         img = qrcode.make(link)
         img.save(f"Storage_QRcodes/{unique_id}.png")
