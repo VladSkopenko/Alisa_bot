@@ -8,6 +8,7 @@ class ShowAllBot(AbstractBot):
         """
         Show all records in the database
         """
+        self.address_book.load_records_from_db()
         print(self.address_book)
 
 
