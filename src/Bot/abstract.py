@@ -3,7 +3,7 @@ from abc import abstractmethod
 
 from colorama import Fore
 
-from models.Address_book import AddressBook
+from src.Address_book import AddressBook
 from src.models.record import Record
 
 
@@ -32,7 +32,7 @@ class AbstractBot(ABC):
             email=email,
             birthday=birthday,
             company=company,
-            address=address
+            address=address,
         )
         return record
 

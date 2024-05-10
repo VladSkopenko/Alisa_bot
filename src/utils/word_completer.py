@@ -7,8 +7,8 @@ word_completer = WordCompleter(
         "add_contact",
         "edit_contact",
         "delete_contact",
-        "show_all",
-        "find",
+        "show_all_contacts",
+        "find_contact",
         "create_qr_code",
     ]
 )
