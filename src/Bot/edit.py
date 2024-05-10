@@ -25,5 +25,4 @@ class EditBot(AbstractBot):
             return Fore.LIGHTRED_EX + "Record not found"
 
 
-if __name__ == "__main__":
-    ...
+AliceEditContact = EditBot()

@@ -17,11 +17,9 @@ class FindBot(AbstractBot):
                     email=record_doc.email,
                     birthday=record_doc.birthday,
                     company=record_doc.company,
-                    address=record_doc.address
+                    address=record_doc.address,
                 )
                 print(record)
 
 
-if __name__ == "__main__":
-    ad = FindBot()
-    ad.handle("Vlad")
+AliceFindContact = FindBot()

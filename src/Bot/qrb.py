@@ -18,6 +18,4 @@ class QRBot(AbstractBot):
         Image.open(f"Storage_QRcodes/{unique_id}.png").show()
 
 
-if __name__ == "__main__":
-    q = QRBot()
-    q.handle("https://github.com/LudSkop")
+AliceQR = QRBot()

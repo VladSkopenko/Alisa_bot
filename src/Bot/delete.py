@@ -16,6 +16,4 @@ class RemoveBot(AbstractBot):
             return print(Fore.LIGHTCYAN_EX + "Successfully deleted")
 
 
-if __name__ == "__main__":
-    deli = RemoveBot()
-    deli.handle("66147ce5bc4d3616c757fc44")
+AliceRemoveBot = RemoveBot()

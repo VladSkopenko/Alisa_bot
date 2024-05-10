@@ -11,6 +11,4 @@ class ShowAllBot(AbstractBot):
         print(self.address_book)
 
 
-if __name__ == "__main__":
-    a = ShowAllBot()
-    a.handle()
+AliceShowAll = ShowAllBot()
