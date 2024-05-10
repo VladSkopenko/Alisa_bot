@@ -23,3 +23,5 @@ class FindBot(AbstractBot):
 
 
 AliceFindContact = FindBot()
+if __name__ == "__main__":
+    AliceFindContact.handle("Vlad")

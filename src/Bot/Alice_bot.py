@@ -36,7 +36,7 @@ class AlisaBot:
                 self.handler[user_command](new_contact)
 
             elif user_command == "edit":
-                user_name = input("Enter name: ")
+                user_name = input("Enter name: ").lower()
                 new_contact = AliceEditContact.get_user_input_for_record_creation()
                 self.handler[user_command](user_name, new_contact)
 
@@ -45,7 +45,7 @@ class AlisaBot:
                 self.handler[user_command](user_id)
 
             elif user_command == "find":
-                user_name = input("Enter name: ")
+                user_name = input("Enter name: ").lower()
                 self.handler[user_command](user_name)
             elif user_command == "qr":
 
