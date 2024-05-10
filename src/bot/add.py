@@ -7,7 +7,12 @@ class AddBot(AbstractBot):
 
     def handle(self, record: Record) -> None:
         """
-        Add a contact to the database
+        The handle function is the main function of this class. It takes a Record object as an argument and saves it to the database.
+
+        :param self: Represent the instance of the class
+        :param record: Record: Pass the record object to the handle function
+        :return: None
+        :doc-author: Trelent
         """
         contact_for_db = RecordDocument(
             name=str(record.name),

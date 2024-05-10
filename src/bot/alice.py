@@ -1,12 +1,12 @@
-from src.bot.exit import AliceExit
-from src.utils.intro import introduce_alice
 from src.bot.add import AliceAddContact
 from src.bot.delete import AliceRemoveBot
 from src.bot.edit import AliceEditContact
+from src.bot.exit import AliceExit
 from src.bot.find import AliceFindContact
+from src.bot.help import AliceHelp
 from src.bot.qrb import AliceQR
 from src.bot.show_all import AliceShowAll
-from src.bot.help import AliceHelp
+from src.utils.intro import introduce_alice
 
 
 class AlisaBot:
@@ -22,6 +22,15 @@ class AlisaBot:
     }
 
     def run_bot(self):
+        """
+        The run_bot function is the main function of the program. It runs a while loop that prompts
+        the user for input and then calls the appropriate handler method based on what they entered.
+        The run_bot function also contains some logic to handle invalid commands.
+
+        :param self: Access the instance of the class
+        :return: A string
+        :doc-author: Trelent
+        """
         introduce_alice()
 
         while True:

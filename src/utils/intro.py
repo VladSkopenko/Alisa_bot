@@ -2,6 +2,12 @@ import cowsay
 
 
 def introduce_alice():
+    """
+    The introduce_alice function prints a friendly introduction to the user.
+
+    :return: A cowsay
+    :doc-author: Trelent
+    """
     intro_text = f"""
     Hello! I am Alice!
     I am your personal assistant.
@@ -11,6 +17,12 @@ def introduce_alice():
 
 
 def help_alice():
+    """
+    The help_alice function prints out a list of commands that the user can use to interact with their address book.
+
+    :return: The help_text variable
+    :doc-author: Trelent
+    """
     help_text = f"""
     I can help you with the following commands with your address book:
     - add contact(add)
@@ -25,6 +37,13 @@ def help_alice():
 
 
 def exit_alice():
+    """
+    The exit_alice function is a simple function that prints out a goodbye message to the user.
+
+
+    :return: The exit_text string
+    :doc-author: Trelent
+    """
     exit_text = f"""
     Good bye!
     """

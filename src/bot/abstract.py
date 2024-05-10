@@ -13,10 +13,27 @@ class AbstractBot(ABC):
 
     @abstractmethod
     def handle(self, *args):
+        """
+        The handle function is the main function of a management command.
+        It's called by the Django framework when you run your command.
+
+
+        :param self: Represent the instance of a class
+        :param *args: Pass a variable number of arguments to the function
+        :return: A string
+        :doc-author: Trelent
+        """
         pass
 
     @staticmethod
     def get_user_input_for_record_creation() -> Record:
+        """
+        The get_user_input_for_record_creation function prompts the user for input and returns a Record object.
+
+
+        :return: A record object
+        :doc-author: Trelent
+        """
         name = input(Fore.BLUE + "Enter name: ")
         phone = input(Fore.GREEN + "Enter phone number: ")
         tag = input(Fore.LIGHTRED_EX + "Enter tag: ")

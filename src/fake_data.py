@@ -11,11 +11,26 @@ datebase = DB
 
 
 def generate_fake_phone_number():
+    """
+    The generate_fake_phone_number function generates a fake phone number.
+        Args:
+            None
+
+    :return: A random phone number from the list
+    :doc-author: Trelent
+    """
     list_phone = ["380961610573", "0961234586", "380631034048"]
     return choice(list_phone)
 
 
 def seed():
+    """
+    The seed function will create 10 fake contacts and save them to the database.
+        The seed function is called in the main() function, which is called at the bottom of this file.
+
+    :return: A list of recorddocument objects
+    :doc-author: Trelent
+    """
     for _ in range(10):
         valid_contact = Record(
             name=fake.name(),

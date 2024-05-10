@@ -1,14 +1,24 @@
+from colorama import Fore
+
 from src.bot.abstract import AbstractBot
 from src.models.record import Record
 from src.models.record_document import RecordDocument
-from colorama import Fore
 
 
 class EditBot(AbstractBot):
 
     def handle(self, name: str, record: Record) -> None | str:
         """
-        Edit a record in the database based on its ID.
+        The handle function is responsible for updating a record in the database.
+            It takes two arguments:
+                name (str): The name of the record to be updated.
+                record (Record): A Record object containing all information about the new version of this contact.
+
+        :param self: Represent the instance of the class
+        :param name: str: Pass the name of the record to be updated
+        :param record: Record: Pass the record object to the function
+        :return: None | str
+        :doc-author: Trelent
         """
         record_from_db = RecordDocument.objects(name=name).first()
         if record_from_db:

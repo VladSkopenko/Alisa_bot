@@ -1,9 +1,10 @@
+from colorama import Fore
+
 from src.decorators.table_decorator import table_decorator
 from src.models.birthday import Birthday
 from src.models.data_field import DataField
 from src.models.email import Email
 from src.models.phone import Phone
-from colorama import Fore
 
 
 class Record:
@@ -23,6 +24,23 @@ class Record:
         company: str = "",
         address: str = "",
     ):
+        """
+        The __init__ function is the constructor for a class. It initializes all of the attributes
+        of an object when it is created. The __init__ function takes in parameters that are used to
+        initialize each attribute of an object.
+
+        :param self: Refer to the object itself
+        :param name: str: Set the name of the contact
+        :param phone: str: Create a new phone object, which is then appended to the phone list
+        :param tag: str: Create a list of tags
+        :param email: str: Set the email attribute of the contact class
+        :param birthday: str: Create a birthday object
+        :param company: str: Create a datafield object with the company name
+        :param address: str: Create an address object
+        :param : Create a new instance of the class
+        :return: An object of type contact
+        :doc-author: Trelent
+        """
         self.name = DataField(name)
         self.company = DataField(company) if company else ""
         self.address = DataField(address) if address else ""
@@ -41,6 +59,15 @@ class Record:
 
     @table_decorator(__headers)
     def __str__(self):
+        """
+        The __str__ function is a special function in Python that defines the &quot;informal&quot; or nicely printable string representation of an object.
+        This means that if you type the name of an instance of your class at the Python prompt, it will call __str__() and print the return value.
+        It's also used by functions and methods that convert objects to strings such as str().
+
+        :param self: Represent the instance of the class
+        :return: The name, company, email, birthday and address of the contact
+        :doc-author: Trelent
+        """
         return [
             [
                 self.name,
@@ -54,6 +81,19 @@ class Record:
         ]
 
     def to_dict(self):
+        """
+        The to_dict function takes a Record object and returns a dictionary representation of the record.
+        The dictionary has the following keys:
+            name: The value of the Name field in this record.
+            phone: A list containing all Phone fields in this record, as strings. If there are no Phone fields,
+                then an empty list is returned instead (i.e., []). Each string should be formatted like so:
+                &quot;type=value&quot; where type is one of &quot;home&quot;, &quot;work&quot;, or &quot;mobile&quot;. For example, if there were two
+                phone numbers for a contact with types home and mobile
+
+        :param self: Refer to the instance of the class
+        :return: A dictionary of the record's information
+        :doc-author: Trelent
+        """
         record_dict = {
             "name": self.name.value,
             "phone": [phone.value for phone in self.phone],
@@ -67,7 +107,17 @@ class Record:
 
     def update_field(self, field_name: str, old_value: str, new_value: str) -> None:
         """
-        A universal method, it takes a name and changes the values in the list, if any, while maintaining the validation
+        The update_field function takes three arguments:
+            1. field_name - the name of the field to be updated
+            2. old_value - the value that is currently in that field
+            3. new_value - what you want to replace it with
+
+        :param self: Refer to the object itself
+        :param field_name: str: Identify the field to be updated
+        :param old_value: str: Find the field that needs to be updated
+        :param new_value: str: Update the value of a field
+        :return: None
+        :doc-author: Trelent
         """
         field = getattr(self, field_name)
         if field:
@@ -83,18 +133,3 @@ class Record:
             raise AttributeError(
                 Fore.LIGHTRED_EX + f"Field {field_name} not found in record"
             )
-
-
-if __name__ == "__main__":
-    per = Record(
-        name="Vlad",
-        phone="380961630573",
-        tag="student",
-        email="exsam@fa.com",
-        birthday="2000-01-28",
-        company="go it",
-        address="address231213",
-    )
-    per.tags.append(DataField("Test"))
-    per.phone.append(Phone("0961610523"))
-    print(per)

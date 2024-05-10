@@ -10,8 +10,15 @@ class QRBot(AbstractBot):
 
     def handle(self, link: str) -> None:
         """
-        Creates qrcode
+        The handle function creates a QR code from the link provided.
+        It saves it to a file and opens it in the default image viewer.
+
+        :param self: Represent the instance of the class
+        :param link: str: Pass the link that is to be converted into a qr code
+        :return: None
+        :doc-author: Trelent
         """
+
         unique_id = uuid.uuid4()
         img = qrcode.make(link)
         img.save(f"Storage_QRcodes/{unique_id}.png")

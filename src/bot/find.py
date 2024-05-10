@@ -6,7 +6,13 @@ class FindBot(AbstractBot):
 
     def handle(self, name: str) -> None:
         """
-        Find records in the database by name.
+        The handle function takes a name as an argument and prints the record of that person.
+
+
+        :param self: Access the class attributes and methods
+        :param name: str: Specify the name of the record that we want to print
+        :return: The record of the person whose name is passed as an argument
+        :doc-author: Trelent
         """
         for record_doc in self.address_book:
             if record_doc.name.lower() == name.lower():
@@ -23,5 +29,3 @@ class FindBot(AbstractBot):
 
 
 AliceFindContact = FindBot()
-if __name__ == "__main__":
-    AliceFindContact.handle("Vlad")
