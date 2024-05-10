@@ -9,17 +9,20 @@ from src.models.RecordDocument import RecordDocument
 
 
 class AddressBook(UserList):
-    __headers = ["id", "name", "phone", "tags", "email", "birthday", "company", "address"]
+    __headers = [
+        "id",
+        "name",
+        "phone",
+        "tags",
+        "email",
+        "birthday",
+        "company",
+        "address",
+    ]
 
     def __init__(self):
         super().__init__()
         self.load_records_from_db()
-
-    def export_contacts_by_tag(self):
-        ...
-
-    def import_record(self):
-        ...
 
     def load_records_from_db(self):
         connect(db=db, host=URI)
