@@ -17,7 +17,7 @@ class AbstractBot(ABC):
 
     @staticmethod
     def get_user_input_for_record_creation() -> Record:
-        name = input(Fore.RED + "Enter name: ")
+        name = input(Fore.BLUE +  "Enter name: ")
         phone = input(Fore.GREEN + "Enter phone number: ")
         tag = input(Fore.LIGHTRED_EX + "Enter tag: ")
         email = input(Fore.MAGENTA + "Enter email: ")
