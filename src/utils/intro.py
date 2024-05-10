@@ -29,9 +29,3 @@ def exit_alice():
     Good bye!
     """
     cowsay.cow(text=exit_text)
-
-
-if __name__ == "__main__":
-    introduce_alice()
-    help_alice()
-    exit_alice()
