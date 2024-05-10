@@ -18,7 +18,9 @@ class AddBot(AbstractBot):
             company=str(record.company),
             birthday=str(record.birthday),
         )
-        contact_for_db.save()
+        task = contact_for_db.save()
+        if task:
+            print("Contact added successfully")
 
 
 AliceAddContact = AddBot()

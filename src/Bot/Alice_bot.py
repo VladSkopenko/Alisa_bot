@@ -1,9 +1,6 @@
-from prompt_toolkit import PromptSession
-
 from Bot.exit import AliceExit
 from utils.intro import introduce_alice
 from utils.word_completer import word_completer
-from common.reqular_exp import EXIT
 from src.Bot.add import AliceAddContact
 from src.Bot.delete import AliceRemoveBot
 from src.Bot.edit import AliceEditContact
@@ -26,7 +23,7 @@ class AlisaBot:
         "exit": AliceExit.handle,
     }
 
-    def do_start(self):
+    def run_bot(self):
         introduce_alice()
 
         while True:
@@ -64,4 +61,4 @@ class AlisaBot:
 
 if __name__ == "__main__":
     a = AlisaBot()
-    a.do_start()
+    a.run_bot()
