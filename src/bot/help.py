@@ -1,4 +1,4 @@
-from src.Bot.abstract import AbstractBot
+from src.bot.abstract import AbstractBot
 from src.models.record import Record
 from src.utils.intro import help_alice
 

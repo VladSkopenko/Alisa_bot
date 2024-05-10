@@ -1,4 +1,4 @@
-from src.Bot.Alice_bot import MainBot
+from src.bot.alice import MainBot
 
 
 if __name__ == "__main__":

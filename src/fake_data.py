@@ -2,8 +2,8 @@ from random import choice
 
 from faker import Faker
 
-from datebase.Connect_db import DB
-from models.RecordDocument import RecordDocument
+from datebase.connect_db import DB
+from models.record_document import RecordDocument
 from old_file.Record import Record
 
 fake = Faker()

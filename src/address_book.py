@@ -1,11 +1,11 @@
 from collections import UserList
 
-from src.datebase.Connect_db import connect
-from src.datebase.Connect_db import DB
-from src.datebase.Connect_db import db
-from src.datebase.Connect_db import URI
-from src.Decorators.Table_decorator import table_decorator
-from src.models.RecordDocument import RecordDocument
+from src.datebase.connect_db import connect
+from src.datebase.connect_db import DB
+from src.datebase.connect_db import db
+from src.datebase.connect_db import URI
+from src.decorators.table_decorator import table_decorator
+from src.models.record_document import RecordDocument
 
 
 class AddressBook(UserList):

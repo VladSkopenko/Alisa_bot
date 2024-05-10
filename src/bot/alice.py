@@ -1,17 +1,15 @@
-from src.Bot.exit import AliceExit
+from src.bot.exit import AliceExit
 from src.utils.intro import introduce_alice
-from src.utils.word_completer import word_completer
-from src.Bot.add import AliceAddContact
-from src.Bot.delete import AliceRemoveBot
-from src.Bot.edit import AliceEditContact
-from src.Bot.find import AliceFindContact
-from src.Bot.qrb import AliceQR
-from src.Bot.show_all import AliceShowAll
-from src.Bot.help import AliceHelp
+from src.bot.add import AliceAddContact
+from src.bot.delete import AliceRemoveBot
+from src.bot.edit import AliceEditContact
+from src.bot.find import AliceFindContact
+from src.bot.qrb import AliceQR
+from src.bot.show_all import AliceShowAll
+from src.bot.help import AliceHelp
 
 
 class AlisaBot:
-    word_completer = word_completer
     handler = {
         "help": AliceHelp.handle,
         "add": AliceAddContact.handle,

@@ -1,7 +1,7 @@
 from colorama import Fore
 
-from src.Bot.abstract import AbstractBot
-from src.models.RecordDocument import RecordDocument
+from src.bot.abstract import AbstractBot
+from src.models.record_document import RecordDocument
 
 
 class RemoveBot(AbstractBot):

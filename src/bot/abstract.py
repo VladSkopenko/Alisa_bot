@@ -3,7 +3,7 @@ from abc import abstractmethod
 
 from colorama import Fore
 
-from src.Address_book import AddressBook
+from src.address_book import AddressBook
 from src.models.record import Record
 
 
