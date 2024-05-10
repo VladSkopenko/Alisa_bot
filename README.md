@@ -1,5 +1,5 @@
 # AlisaBot
-![Image Description](https://res-console.cloudinary.com/db7wbpazn/thumbnails/v1/image/upload/v1715350919/YWxpY2VfeWlpbG43/drilldown)
+![Image Description](https://res.cloudinary.com/db7wbpazn/image/upload/v1715350919/alice_yiiln7.png)
 AlisaBot is a command-line tool designed to manage contacts and create QR codes. It provides a convenient interface for performing various operations related to contacts and QR code generation.
 
 ## Features
