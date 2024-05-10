@@ -25,6 +25,15 @@ class AlisaBot:
 
     @error_handler
     def run(self):
+        """
+        The run function is the main loop of the program. It will continue to run until
+        the user enters 'exit' as a command. The function takes in user input and checks if it matches any of
+        the commands listed in self.handlers, which are all functions that have been defined above (handle_help, handle_list, etc.). If there is no match for the command entered by the user then it will print out a help message with all available commands.
+
+        :param self: Keep a reference to the current instance of the class, and is used to access variables that belongs to the class
+        :return: None
+        :doc-author: Trelent
+        """
         while True:
             user_command = input("Enter command: ").lower()
             if user_command == "exit":

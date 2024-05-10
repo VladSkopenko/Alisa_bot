@@ -1,0 +1,24 @@
+ERROR:root:[34mInvalid email
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\Alisa\src\decorators\error_handler.py", line 31, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\Alisa\src\bot\alice.py", line 34, in run
+    self.handlers[user_command]()
+  File "C:\Users\user\Desktop\Alisa\src\bot\alice.py", line 40, in handle_add
+    AliceAddContact.handle()
+  File "C:\Users\user\Desktop\Alisa\src\bot\add.py", line 18, in handle
+    record = self.get_user_input_for_record_creation()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\Alisa\src\bot\abstract.py", line 45, in get_user_input_for_record_creation
+    record = Record(
+             ^^^^^^^
+  File "C:\Users\user\Desktop\Alisa\src\models\record.py", line 47, in __init__
+    self.email = Email(email) if email else ""
+                 ^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\Alisa\src\models\field.py", line 21, in __init__
+    self._value = self.validate(value)
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\Alisa\src\models\email.py", line 28, in validate
+    raise ValueError(Fore.BLUE + "Invalid email")
+ValueError: [34mInvalid email
