@@ -1,12 +1,12 @@
 from abstract import AbstractBot
 from src.models.record import Record
-from src.utils.intro import help_alice
+from src.utils.intro import exit_alice
 
 
-class HelpBot(AbstractBot):
+class ExitBot(AbstractBot):
 
     def handle(self, record: Record = None) -> None:
-        help_alice()
+        exit_alice()
 
 
-AliceHelp = HelpBot()
+AliceExit = ExitBot()

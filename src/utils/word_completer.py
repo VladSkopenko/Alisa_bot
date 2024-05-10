@@ -10,5 +10,6 @@ word_completer = WordCompleter(
         "show_all_contacts",
         "find_contact",
         "create_qr_code",
-    ]
+    ],
+    ignore_case=True,
 )

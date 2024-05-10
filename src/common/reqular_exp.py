@@ -1,0 +1,1 @@
+EXIT = r"exit"
