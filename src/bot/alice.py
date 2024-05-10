@@ -6,6 +6,7 @@ from src.bot.find import AliceFindContact
 from src.bot.help import AliceHelp
 from src.bot.qrb import AliceQR
 from src.bot.show_all import AliceShowAll
+from src.decorators.error_handler import error_handler
 from src.utils.intro import introduce_alice
 
 
@@ -22,6 +23,7 @@ class AlisaBot:
         }
         introduce_alice()
 
+    @error_handler
     def run(self):
         while True:
             user_command = input("Enter command: ").lower()

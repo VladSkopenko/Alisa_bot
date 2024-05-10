@@ -1,4 +1,8 @@
+import logging
+
 from colorama import Fore
+
+logging.basicConfig(filename="error_log.log", level=logging.ERROR)
 
 
 def error_handler(func):
@@ -27,6 +31,7 @@ def error_handler(func):
             result = func(*args, **kwargs)
             return result
         except Exception as e:
-            return Fore.LIGHTRED_EX + str(e)
+            logging.error(str(e), exc_info=True)
+            return "0631934048 report an error, Vladislav: " + Fore.RED + str(e)
 
     return wrapper
