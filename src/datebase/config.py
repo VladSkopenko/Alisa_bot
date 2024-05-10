@@ -7,8 +7,6 @@ load_dotenv()
 class Settings(BaseSettings):
     MONGO_URL: str = "mongodb://localhost:27017/"
     MONGO_INITDB_DATABASE: str = "AddressBook"
-    REDIS_DOMAIN: str = "localhost"
-    REDIS_PORT: int = 6379
 
     class Config:
         extra = "ignore"
