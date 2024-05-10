@@ -3,7 +3,7 @@ import uuid
 import qrcode
 from PIL import Image
 
-from abstract import AbstractBot
+from src.Bot.abstract import AbstractBot
 
 
 class QRBot(AbstractBot):

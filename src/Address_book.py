@@ -46,8 +46,3 @@ class AddressBook(UserList):
             if record_dict:
                 data.append(record_dict)
         return data
-
-
-ADDRESSBOOK = AddressBook()
-if __name__ == "__main__":
-    print(ADDRESSBOOK)

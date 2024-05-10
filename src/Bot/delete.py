@@ -1,6 +1,6 @@
 from colorama import Fore
 
-from abstract import AbstractBot
+from src.Bot.abstract import AbstractBot
 from src.models.RecordDocument import RecordDocument
 
 

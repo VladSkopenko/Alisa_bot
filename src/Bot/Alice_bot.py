@@ -1,6 +1,6 @@
-from Bot.exit import AliceExit
-from utils.intro import introduce_alice
-from utils.word_completer import word_completer
+from src.Bot.exit import AliceExit
+from src.utils.intro import introduce_alice
+from src.utils.word_completer import word_completer
 from src.Bot.add import AliceAddContact
 from src.Bot.delete import AliceRemoveBot
 from src.Bot.edit import AliceEditContact
@@ -59,6 +59,4 @@ class AlisaBot:
                 self.handler["help"]()
 
 
-if __name__ == "__main__":
-    a = AlisaBot()
-    a.run_bot()
+MainBot = AlisaBot()

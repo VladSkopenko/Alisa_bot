@@ -1,4 +1,4 @@
-from abstract import AbstractBot
+from src.Bot.abstract import AbstractBot
 from src.models.record import Record
 
 
